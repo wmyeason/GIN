@@ -3,7 +3,7 @@ package com.cuc.gin.vo;
 import java.io.Serializable;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/3/2, 周一
  **/
 public class UserInfoVo implements Serializable {

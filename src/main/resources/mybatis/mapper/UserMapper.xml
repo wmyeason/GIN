@@ -10,16 +10,17 @@
         <result column="avatar" property="avatar" jdbcType="VARCHAR" />
         <result column="age" property="age" jdbcType="INTEGER" />
         <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+        <result column="isConsultant" property="isConsultant" jdbcType="INTEGER"/>
     </resultMap>
 
     <sql id="baseCols" >
         id, username, password, gender, avatar, status, age, nickname
     </sql>
 
-    <select id="getAll" resultMap="BaseResultMap">
+    <select id="getAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         SELECT
         <include refid="baseCols"/>
-        FROM sys_user
+        FROM sys_user where isConsultant = #{abc}
     </select>
 
     <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
@@ -46,9 +47,9 @@
     <insert id="add" parameterType="com.cuc.gin.model.UserEntity" >
        INSERT INTO
        		sys_user
-       		(username, password)
+       		(username, password,isConsultant)
        	VALUES
-       		(#{username}, #{password})
+       		(#{username}, #{password},#{isConsultant})
     </insert>
 
     <update id="updateOne" parameterType="com.cuc.gin.model.UserEntity" >

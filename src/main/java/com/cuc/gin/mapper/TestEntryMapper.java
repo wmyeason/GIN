@@ -5,7 +5,7 @@ import com.cuc.gin.model.TestEntryEntity;
 import java.util.List;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/2/27, 周四
  **/
 public interface TestEntryMapper {

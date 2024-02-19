@@ -7,6 +7,7 @@ import com.cuc.gin.util.*;
 import com.google.common.base.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/2/29, 周六
  **/
 @RestController
@@ -26,11 +27,11 @@ public class UserController {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     @AdminRequired
-    public HTTPMessage<List<UserEntity>> getAll(HttpServletRequest request, HttpServletResponse response) {
+    public HTTPMessage<List<UserEntity>> getAll(HttpServletRequest request, HttpServletResponse response,@RequestParam("type") Integer  type) {
         return new HTTPMessage<>(
                 HTTPMessageCode.Common.OK,
                 HTTPMessageText.Common.OK,
-                userMapper.getAll()
+                userMapper.getAll(type)
         );
     }
 
@@ -89,6 +90,47 @@ public class UserController {
         }
         userMapper.removeOne(id);
         response.setStatus(HttpStatus.NO_CONTENT.value());
+        return new HTTPMessage<>(
+                HTTPMessageCode.Common.OK,
+                HTTPMessageText.Common.OK
+        );
+    }
+
+    @RequestMapping(value = "/user/editUserInfoByAdmin", method = RequestMethod.POST)
+    @Transactional
+    public HTTPMessage<Void> updateUserByAdmin(@RequestBody Map map) {
+        String id = (String) map.get("id");
+        UserEntity user = userMapper.getOne(Long.valueOf(id));
+        if (user == null) {
+            return new HTTPMessage<>(
+                    HTTPMessageCode.Common.FAILURE,
+                    HTTPMessageText.Common.FAILURE
+            );
+        }
+        String newPassword = (String) map.get("password");
+        String passAble = (String) map.get("passAble");
+        Integer age = (Integer) map.get("age");
+        String sex = (String) map.get("sex");
+
+        if (passAble.equals("true") && Strings.isNullOrEmpty(newPassword)) {
+            return new HTTPMessage<>(
+                    HTTPMessageCode.Common.FAILURE,
+                    HTTPMessageText.Common.FAILURE
+            );
+        }
+        if (passAble.equals("true")) {
+            user.setPassword(CryptoUtil.getHashedPassword(newPassword));
+        }
+        user.setAge(age);
+        if(sex.equals("男")||sex.equals("MALE")){
+            user.setGender(Gender.MALE);
+        }else if(sex.equals("女")||sex.equals("FEMALE")){
+            user.setGender(Gender.FEMALE);
+        }else{
+            user.setGender(Gender.OTHER);
+        }
+
+        userMapper.updateOne(user);
         return new HTTPMessage<>(
                 HTTPMessageCode.Common.OK,
                 HTTPMessageText.Common.OK

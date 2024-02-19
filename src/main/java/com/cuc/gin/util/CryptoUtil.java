@@ -5,7 +5,7 @@ import com.google.common.hash.Hashing;
 import java.nio.charset.StandardCharsets;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/1/26, 周日
  **/
 public class CryptoUtil {

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/2/26, 周三
  **/
 public class BoardEntity implements Serializable {

@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import java.security.Key;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/2/25, 周二
  **/
 @Configuration

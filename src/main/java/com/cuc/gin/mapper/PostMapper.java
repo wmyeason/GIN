@@ -5,7 +5,7 @@ import com.cuc.gin.model.PostEntity;
 import java.util.List;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/2/26, 周三
  **/
 public interface PostMapper {

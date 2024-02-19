@@ -5,7 +5,7 @@ import com.cuc.gin.model.TalkEntity;
 import java.util.List;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/3/9, 周一
  **/
 public interface TalkMapper {

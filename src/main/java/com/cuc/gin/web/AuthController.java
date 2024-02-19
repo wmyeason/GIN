@@ -21,7 +21,7 @@ import java.util.Map;
 
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/1/26, 周日
  **/
 @RestController
@@ -69,6 +69,7 @@ public class AuthController {
     public HTTPMessage<UserEntity> register(@RequestBody Map map) {
         String username = (String) map.get("username");
         String password = (String) map.get("password");
+        Boolean isConsult = (Boolean) map.get("isConsult");
         if (Strings.isNullOrEmpty(username)
                 || Strings.isNullOrEmpty(password)) {
             throw new IllegalArgumentException();
@@ -80,8 +81,8 @@ public class AuthController {
                     HTTPMessageText.Register.EXISTS
             );
         }
-
-        UserEntity user = new UserEntity(username,CryptoUtil.getHashedPassword(password));
+        Integer consult = isConsult?1:0;
+        UserEntity user = new UserEntity(username,CryptoUtil.getHashedPassword(password),consult);
         userMapper.add(user);
         return new HTTPMessage<>(
                 HTTPMessageCode.Register.OK,

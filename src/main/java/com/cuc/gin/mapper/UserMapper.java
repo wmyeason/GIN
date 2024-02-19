@@ -5,11 +5,11 @@ import com.cuc.gin.model.UserEntity;
 import java.util.List;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/1/26, 周日
  **/
 public interface UserMapper {
-    List<UserEntity> getAll();
+    List<UserEntity> getAll(Integer type);
 
     UserEntity getOne(Long id);
 

@@ -6,7 +6,7 @@ import org.apache.catalina.User;
 import java.io.Serializable;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/1/26, 周日
  **/
 public class UserEntity implements Serializable {
@@ -19,6 +19,16 @@ public class UserEntity implements Serializable {
     private Integer status;
     private Integer age;
     private String nickname;
+
+    private Integer isConsultant;
+
+    public Integer getIsConsultant() {
+        return isConsultant;
+    }
+
+    public void setIsConsultant(Integer isConsultant) {
+        this.isConsultant = isConsultant;
+    }
 
     public String getAvatar() {
         return avatar;
@@ -33,6 +43,11 @@ public class UserEntity implements Serializable {
     public UserEntity(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+    public UserEntity(String username, String password,Integer isConsultant) {
+        this.username = username;
+        this.password = password;
+        this.isConsultant = isConsultant;
     }
 
     public Integer getStatus() {

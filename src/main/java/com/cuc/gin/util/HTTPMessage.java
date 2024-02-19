@@ -3,7 +3,7 @@ package com.cuc.gin.util;
 import java.io.Serializable;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/1/26, 周日
  **/
 public class HTTPMessage<T> implements Serializable {

@@ -16,7 +16,7 @@ import java.security.Key;
 import java.util.Date;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/2/26, 周三
  **/
 public class AuthInterceptor implements HandlerInterceptor {

@@ -3,7 +3,7 @@ package com.cuc.gin.model;
 import java.io.Serializable;
 
 /**
- * @author : Chen X.T.
+ * @author : Wang SM.
  * @since : 2020/2/28, 周五
  **/
 public class TestResultEntity implements Serializable {
