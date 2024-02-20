@@ -2,7 +2,7 @@ package com.cuc.gin.util;
 
 /**
  * @author : Wang SM.
- * @since : 2024/1/26, 周日
+ * @since : 2024/1/26,  
  **/
 public class HTTPMessageText {
     public static class Login {

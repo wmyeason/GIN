@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author : Wang SM.
- * @since : 2024/2/28, 周五
+ * @since : 2024/2/28,  
  **/
 public interface TestResultMapper {
     List<TestResultEntity> getAll();

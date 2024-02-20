@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * @author : Wang SM.
- * @since : 2024/1/26, 周日
+ * @since : 2024/1/26,  
  **/
 public class UserEntity implements Serializable {
     private static final long serialVersionUID = 1L;

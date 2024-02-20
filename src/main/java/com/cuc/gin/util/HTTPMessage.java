@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @author : Wang SM.
- * @since : 2024/1/26, 周日
+ * @since : 2024/1/26,  
  **/
 public class HTTPMessage<T> implements Serializable {
 

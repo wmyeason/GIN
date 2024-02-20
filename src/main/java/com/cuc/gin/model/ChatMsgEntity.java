@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * @author : Wang SM.
- * @since : 2024/2/2, 周日
+ * @since : 2024/2/2,  
  **/
 public class ChatMsgEntity implements Serializable {
     private static final long serialVersionUID = 1L;

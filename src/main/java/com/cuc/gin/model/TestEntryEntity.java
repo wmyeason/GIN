@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @author : Wang SM.
- * @since : 2024/2/27, 周四
+ * @since : 2024/2/27,  
  **/
 public class TestEntryEntity implements Serializable {
     private static final long serialVersionUID = 1L;

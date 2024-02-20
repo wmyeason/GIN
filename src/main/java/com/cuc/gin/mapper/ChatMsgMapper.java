@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author : Wang SM.
- * @since : 2024/2/2, 周日
+ * @since : 2024/2/2,  
  **/
 public interface ChatMsgMapper {
     void insert(ChatMsgEntity msg);
