@@ -26,7 +26,7 @@ import java.util.*;
 
 /**
  * @author : Wang SM.
- * @since : 2020/2/27, 周四
+ * @since : 2024/2/27, 周四
  **/
 @RestController
 public class TestController {
@@ -91,7 +91,7 @@ public class TestController {
 
     @RequestMapping(value = "/test/result", method = RequestMethod.POST)
     public HTTPMessage<Void> submitResult(@RequestBody Map map) {
-        // TODO: 2020/3/9 query user id from request attribute and compare with id via request param
+        // TODO: 2024/3/9 query user id from request attribute and compare with id via request param
         String userId = (String) map.get("userId");
         List<String> seq = (List<String>) map.get("checkedList");
         Map<Integer, String> choice = new HashMap<>();

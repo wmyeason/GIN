@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * @author : Wang SM.
- * @since : 2020/1/26, 周日
+ * @since : 2024/1/26, 周日
  **/
 public class CryptoUtil {
     public static String getHashedPassword(String clear) {

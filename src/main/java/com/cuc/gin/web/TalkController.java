@@ -21,7 +21,7 @@ import java.util.Map;
 
 /**
  * @author : Wang SM.
- * @since : 2020/3/9, 周一
+ * @since : 2024/3/9, 周一
  **/
 @RestController
 public class TalkController {
@@ -41,7 +41,7 @@ public class TalkController {
 
     @RequestMapping(value = "/talk", method = RequestMethod.POST)
     public HTTPMessage<Void> submit(HttpServletRequest request, @RequestBody Map map) {
-        // TODO: 2020/3/9 query user id from request attribute and compare with id via request param
+        // TODO: 2024/3/9 query user id from request attribute and compare with id via request param
         // String userId = (String) request.getAttribute("userId");
         String userId = (String) map.get("userId");
         String username = (String) map.get("username");

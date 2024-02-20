@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @author : Wang SM.
- * @since : 2020/3/2, 周一
+ * @since : 2024/3/2, 周一
  **/
 public class UserInfoVo implements Serializable {
     private static final long serialVersionUID = 1L;

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @author : Wang SM.
- * @since : 2020/2/26, 周三
+ * @since : 2024/2/26, 周三
  **/
 public class PostEntity implements Serializable {
     private static final long serialVersionUID = 1L;

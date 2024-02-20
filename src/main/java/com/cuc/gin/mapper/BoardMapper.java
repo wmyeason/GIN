@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author : Wang SM.
- * @since : 2020/2/26, 周三
+ * @since : 2024/2/26, 周三
  **/
 public interface BoardMapper {
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author : Wang SM.
- * @since : 2020/1/26, 周日
+ * @since : 2024/1/26, 周日
  **/
 public interface UserMapper {
     List<UserEntity> getAll(Integer type);

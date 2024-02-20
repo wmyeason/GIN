@@ -22,7 +22,7 @@ import java.util.Map;
 
 /**
  * @author : Wang SM.
- * @since : 2020/1/26, 周日
+ * @since : 2024/1/26, 周日
  **/
 @RestController
 @RequestMapping("/auth")

@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author : Wang SM.
- * @since : 2020/2/3, 周一
+ * @since : 2024/2/3, 周一
  **/
 public class ChatMsgVo implements Serializable {
     private static final long serialVersionUID = 1L;

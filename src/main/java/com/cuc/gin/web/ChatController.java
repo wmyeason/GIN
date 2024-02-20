@@ -22,7 +22,7 @@ import java.util.*;
 
 /**
  * @author : Wang SM.
- * @since : 2020/2/2, 周日
+ * @since : 2024/2/2, 周日
  **/
 @RestController
 public class ChatController {
@@ -38,7 +38,7 @@ public class ChatController {
         String from = (String) map.get("from_id");
         String to = (String) map.get("to_id");
         String content = (String) map.get("content");
-        // FIXME: 2020/3/10 fix admin id = 0
+        // FIXME: 2024/3/10 fix admin id = 0
         if (Strings.isNullOrEmpty(from) || Strings.isNullOrEmpty(to) || Strings.isNullOrEmpty(content)) {
             throw new IllegalArgumentException();
         }
@@ -56,7 +56,7 @@ public class ChatController {
     @RequestMapping(value = "/message", method = RequestMethod.GET)
     public HTTPMessage<ChatMsgVo> queryMessage(@RequestParam("a_id") String aId,
                                                @RequestParam("b_id") String bId) {
-        // FIXME: 2020/3/10 fix a is admin, a_id = 0
+        // FIXME: 2024/3/10 fix a is admin, a_id = 0
         if (Strings.isNullOrEmpty(aId) || Strings.isNullOrEmpty(bId)) {
             throw new IllegalArgumentException();
         }
@@ -72,7 +72,7 @@ public class ChatController {
         return new HTTPMessage<>(
                 HTTPMessageCode.Common.OK,
                 HTTPMessageText.Common.OK,
-                new ChatMsgVo("0", "admin", "https://i.loli.net/2020/03/02/TP81J27RbG3yixC.jpg", bId, b.getUsername(), b.getAvatar(), list)
+                new ChatMsgVo("0", "admin", "https://i.loli.net/2024/03/02/TP81J27RbG3yixC.jpg", bId, b.getUsername(), b.getAvatar(), list)
         );
 
 

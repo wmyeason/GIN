@@ -9,7 +9,7 @@ import java.security.Key;
 
 /**
  * @author : Wang SM.
- * @since : 2020/2/25, 周二
+ * @since : 2024/2/25, 周二
  **/
 @Configuration
 public class JWTConfiguration {
