@@ -1,7 +1,6 @@
 package com.cuc.gin.model;
 
 import com.cuc.gin.util.Gender;
-import org.apache.catalina.User;
 
 import java.io.Serializable;
 
@@ -21,6 +20,16 @@ public class UserEntity implements Serializable {
     private String nickname;
 
     private Integer isConsultant;
+
+    private String contactInfo;
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
+    }
 
     public Integer getIsConsultant() {
         return isConsultant;

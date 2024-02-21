@@ -13,7 +13,25 @@ public class UserInfoVo implements Serializable {
     private String jws;
     private Integer status;
 
+    private String isConsultant;
+
+    public String getIsConsultant() {
+        return isConsultant;
+    }
+
+    public void setIsConsultant(String isConsultant) {
+        this.isConsultant = isConsultant;
+    }
+
     public UserInfoVo() {
+    }
+
+    public UserInfoVo(Long userId, String username, String jws, Integer status,String isConsultant) {
+        this.userId = userId;
+        this.username = username;
+        this.jws = jws;
+        this.status = status;
+        this.isConsultant = isConsultant;
     }
 
     public UserInfoVo(Long userId, String username, String jws, Integer status) {

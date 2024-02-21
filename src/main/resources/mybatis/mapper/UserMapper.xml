@@ -11,10 +11,11 @@
         <result column="age" property="age" jdbcType="INTEGER" />
         <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
         <result column="isConsultant" property="isConsultant" jdbcType="INTEGER"/>
+        <result column="contactInfo" property="contactInfo" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="baseCols" >
-        id, username, password, gender, avatar, status, age, nickname
+        id, username, password, gender, avatar, status, age, nickname, isConsultant,contactInfo
     </sql>
 
     <select id="getAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
@@ -44,7 +45,7 @@
         WHERE username = #{username}
     </select>
 
-    <insert id="add" parameterType="com.cuc.gin.model.UserEntity" >
+    <insert id="add" parameterType="com.cuc.gin.model.UserEntity" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
        INSERT INTO
        		sys_user
        		(username, password,isConsultant)
@@ -54,7 +55,7 @@
 
     <update id="updateOne" parameterType="com.cuc.gin.model.UserEntity" >
         UPDATE sys_user
-        SET username = #{username}, nickname = #{nickname}, age = #{age}, gender = #{gender}, password = #{password}
+        SET username = #{username}, nickname = #{nickname}, age = #{age}, gender = #{gender}, password = #{password},contactInfo=#{contactInfo}
         WHERE id = #{id}
     </update>
 
