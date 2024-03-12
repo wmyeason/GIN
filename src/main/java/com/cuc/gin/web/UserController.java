@@ -8,6 +8,7 @@ import com.cuc.gin.model.UserEntity;
 import com.cuc.gin.service.ConsultInfoService;
 import com.cuc.gin.service.StudentInfoService;
 import com.cuc.gin.util.*;
+import com.cuc.gin.vo.UserExtendInfo;
 import com.google.common.base.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author : Wang SM.
@@ -253,6 +256,49 @@ public class UserController {
                 HTTPMessageCode.Common.OK,
                 HTTPMessageText.Common.OK,
                 user
+        );
+    }
+
+    @GetMapping(value = "/user/getUserByTypeExtendInfo/{type}")
+    public HTTPMessage<List<UserExtendInfo>> getUserByTypeExtendInfo(@PathVariable Integer type) {
+        List<UserEntity> user = userMapper.getAll(type);
+        List<UserExtendInfo> userExtendInfo = new ArrayList<>();
+        if(type == 1){
+            List<ConsultInfoEntity> consultInfoEntities = (List<ConsultInfoEntity>) consultInfoService.listByIds(user.stream().map(UserEntity::getId).collect(Collectors.toList()));
+            for(UserEntity u : user){
+                UserExtendInfo extendInfo = new UserExtendInfo();
+                extendInfo.setUserEntity(u);
+                for(ConsultInfoEntity c : consultInfoEntities){
+                    if(c.getUserId().equals(u.getId())){
+                        extendInfo.setConsultInfo(c);
+                        userExtendInfo.add(extendInfo);
+                    }
+                }
+            }
+        }else{
+            List<StudentInfoEntity> studentInfoEntities = (List<StudentInfoEntity>) studentInfoService.listByIds(user.stream().map(UserEntity::getId).collect(Collectors.toList()));
+            for(UserEntity u : user){
+                UserExtendInfo extendInfo = new UserExtendInfo();
+                extendInfo.setUserEntity(u);
+                for(StudentInfoEntity c : studentInfoEntities){
+                    if(c.getUserId().equals(u.getId())){
+                        extendInfo.setStudentInfo(c);
+                        userExtendInfo.add(extendInfo);
+                    }
+                }
+            }
+        }
+
+        if (user == null) {
+            return new HTTPMessage<>(
+                    HTTPMessageCode.Common.FAILURE,
+                    HTTPMessageText.Common.FAILURE
+            );
+        }
+        return new HTTPMessage<>(
+                HTTPMessageCode.Common.OK,
+                HTTPMessageText.Common.OK,
+                userExtendInfo
         );
     }
 }
