@@ -7,11 +7,11 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cuc.gin.mapper.ReservationInfoMapper;
 import com.cuc.gin.model.ReservationInfoEntity;
 import com.cuc.gin.service.ReservationInfoService;
-import com.cuc.gin.util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -39,11 +39,32 @@ public class ReservationInfoServiceImpl extends ServiceImpl<ReservationInfoMappe
     }
 
     @Override
+    public boolean checkReservationTimeRepeat(String startTime, String startHour, String endHour, String consultId) {
+        QueryWrapper<ReservationInfoEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("reservationDate",startTime);
+        queryWrapper.and(wrapper -> wrapper
+                        .le("startTime", endHour)
+                        .ge("endTime", startHour))
+                .or(wrapper -> wrapper
+                        .ge("startTime", startHour)
+                        .le("startTime", endHour))
+                .or(wrapper -> wrapper
+                        .ge("endTime", startHour)
+                        .le("endTime", endHour));
+//        queryWrapper.lt("startTime",startHour).or().gt("endTime",endHour);
+//        queryWrapper.lt("startTime",startHour).or().gt("endTime",endHour);
+
+
+        List<ReservationInfoEntity> reservationInfoEntities = reservationInfoMapper.selectList(queryWrapper);
+        return null != reservationInfoEntities && reservationInfoEntities.size()>0;
+    }
+
+    @Override
     public void AddReservationByDate(String startTime, String startHour, String endHour, String consultId, String place) {
         ReservationInfoEntity reservationInfoEntity = new ReservationInfoEntity();
         reservationInfoEntity.setStartTime(startHour);
         reservationInfoEntity.setEndTime(endHour);
-        reservationInfoEntity.setReservationDate(DateUtils.format(startTime));
+        reservationInfoEntity.setReservationDate(startTime);
         reservationInfoEntity.setId(UUID.randomUUID().toString());
         reservationInfoEntity.setConsultId(consultId);
         reservationInfoEntity.setCreatedTime(new Date());

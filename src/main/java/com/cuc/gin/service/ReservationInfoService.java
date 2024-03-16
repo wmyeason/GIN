@@ -14,4 +14,6 @@ public interface ReservationInfoService extends IService<ReservationInfoEntity>{
     IPage<ReservationInfoEntity> getConsultReservationInfo(String consultId, String currentPage, String pageSize);
 
     void userAddReservationInfoById(String id, String userId);
+
+    boolean checkReservationTimeRepeat(String startTime, String startHour, String endHour, String consultId);
 }

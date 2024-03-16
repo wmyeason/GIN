@@ -83,13 +83,24 @@ public class ReservationInfoController {
     }
 
     @PostMapping(value = "/consultAddReservationByDate")
-    public HTTPMessage<Void> consultAddReservationByDate(@RequestBody Map map) {
+    public HTTPMessage<String> consultAddReservationByDate(@RequestBody Map map) {
         String startTime = map.get("reservationDate").toString();
         String startHour = map.get("reservationStartHour").toString();
         String endHour = map.get("reservationEndHour").toString();
         String consultId = map.get("consultId").toString();
         String place = map.get("place").toString();
 
+        //String formatDate = DateUtils.format(startTime);
+
+        //添加前先校验 这个时间段是否与别人预约时间重复
+        boolean  res = reservationInfoService.checkReservationTimeRepeat(startTime,startHour,endHour,consultId);
+        if(res){
+            return new HTTPMessage<>(
+                    HTTPMessageCode.Common.FAILURE,
+                    HTTPMessageText.Common.FAILURE,
+                    "已存在相冲突的时间！"
+            );
+        }
         reservationInfoService.AddReservationByDate(startTime,startHour,endHour,consultId,place);
 
         return new HTTPMessage<>(
