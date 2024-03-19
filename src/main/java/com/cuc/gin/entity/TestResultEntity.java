@@ -1,21 +1,20 @@
-package com.cuc.gin.model;
+package com.cuc.gin.entity;
 
 import java.io.Serializable;
 
 /**
  * @author : Wang SM.
- * @since : 2024/3/9,  
+ * @since : 2024/2/28,  
  **/
-public class TalkEntity implements Serializable {
+public class TestResultEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private Long userId;
-    private String username;
-    private String content;
+    private String result;
+    private Integer value;
     private Long createTime;
-    private Integer replied;
 
-    public TalkEntity() {
+    public TestResultEntity() {
     }
 
     public Long getId() {
@@ -34,20 +33,20 @@ public class TalkEntity implements Serializable {
         this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getResult() {
+        return result;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setResult(String result) {
+        this.result = result;
     }
 
-    public String getContent() {
-        return content;
+    public Integer getValue() {
+        return value;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setValue(Integer value) {
+        this.value = value;
     }
 
     public Long getCreateTime() {
@@ -56,13 +55,5 @@ public class TalkEntity implements Serializable {
 
     public void setCreateTime(Long createTime) {
         this.createTime = createTime;
-    }
-
-    public Integer getReplied() {
-        return replied;
-    }
-
-    public void setReplied(Integer replied) {
-        this.replied = replied;
     }
 }

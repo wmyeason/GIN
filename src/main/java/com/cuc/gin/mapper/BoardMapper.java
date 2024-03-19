@@ -1,6 +1,6 @@
 package com.cuc.gin.mapper;
 
-import com.cuc.gin.model.BoardEntity;
+import com.cuc.gin.entity.BoardEntity;
 
 import java.util.List;
 

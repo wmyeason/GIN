@@ -1,6 +1,6 @@
 package com.cuc.gin.vo;
 
-import com.cuc.gin.model.ChatMsgEntity;
+import com.cuc.gin.entity.ChatMsgEntity;
 
 import java.io.Serializable;
 import java.util.List;

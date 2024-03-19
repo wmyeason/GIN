@@ -1,6 +1,6 @@
 package com.cuc.gin.mapper;
 
-import com.cuc.gin.model.PostEntity;
+import com.cuc.gin.entity.PostEntity;
 
 import java.util.List;
 

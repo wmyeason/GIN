@@ -1,4 +1,4 @@
-package com.cuc.gin.model;
+package com.cuc.gin.entity;
 
 import java.io.Serializable;
 

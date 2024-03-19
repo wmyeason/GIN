@@ -1,6 +1,6 @@
 package com.cuc.gin.mapper;
 
-import com.cuc.gin.model.TestResultEntity;
+import com.cuc.gin.entity.TestResultEntity;
 
 import java.util.List;
 

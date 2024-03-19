@@ -1,4 +1,4 @@
-package com.cuc.gin.model;
+package com.cuc.gin.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

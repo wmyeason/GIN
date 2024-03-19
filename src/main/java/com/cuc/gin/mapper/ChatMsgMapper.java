@@ -1,6 +1,6 @@
 package com.cuc.gin.mapper;
 
-import com.cuc.gin.model.ChatMsgEntity;
+import com.cuc.gin.entity.ChatMsgEntity;
 import org.apache.ibatis.annotations.*;
 import java.util.List;
 

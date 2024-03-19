@@ -1,6 +1,6 @@
 package com.cuc.gin.mapper;
 
-import com.cuc.gin.model.TalkEntity;
+import com.cuc.gin.entity.TalkEntity;
 
 import java.util.List;
 

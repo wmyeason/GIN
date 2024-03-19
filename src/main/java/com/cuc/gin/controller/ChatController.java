@@ -1,10 +1,10 @@
-package com.cuc.gin.web;
+package com.cuc.gin.controller;
 
 import com.cuc.gin.annotation.AdminRequired;
 import com.cuc.gin.mapper.ChatMsgMapper;
 import com.cuc.gin.mapper.UserMapper;
-import com.cuc.gin.model.ChatMsgEntity;
-import com.cuc.gin.model.UserEntity;
+import com.cuc.gin.entity.ChatMsgEntity;
+import com.cuc.gin.entity.UserEntity;
 import com.cuc.gin.util.HTTPMessage;
 import com.cuc.gin.util.HTTPMessageCode;
 import com.cuc.gin.util.HTTPMessageText;

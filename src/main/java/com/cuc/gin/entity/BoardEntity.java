@@ -1,7 +1,6 @@
-package com.cuc.gin.model;
+package com.cuc.gin.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author : Wang SM.

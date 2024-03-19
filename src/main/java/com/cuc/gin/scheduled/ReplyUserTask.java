@@ -2,8 +2,8 @@ package com.cuc.gin.scheduled;
 
 import com.cuc.gin.mapper.ChatMsgMapper;
 import com.cuc.gin.mapper.TalkMapper;
-import com.cuc.gin.model.ChatMsgEntity;
-import com.cuc.gin.model.TalkEntity;
+import com.cuc.gin.entity.ChatMsgEntity;
+import com.cuc.gin.entity.TalkEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

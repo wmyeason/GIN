@@ -1,16 +1,15 @@
-package com.cuc.gin.web;
+package com.cuc.gin.controller;
 
 import com.cuc.gin.annotation.AdminRequired;
 import com.cuc.gin.mapper.ChatMsgMapper;
 import com.cuc.gin.mapper.TestEntryMapper;
 import com.cuc.gin.mapper.TestResultMapper;
-import com.cuc.gin.model.ChatMsgEntity;
-import com.cuc.gin.model.TestEntryEntity;
-import com.cuc.gin.model.TestResultEntity;
+import com.cuc.gin.entity.ChatMsgEntity;
+import com.cuc.gin.entity.TestEntryEntity;
+import com.cuc.gin.entity.TestResultEntity;
 import com.cuc.gin.util.HTTPMessage;
 import com.cuc.gin.util.HTTPMessageCode;
 import com.cuc.gin.util.HTTPMessageText;
-import com.google.common.base.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

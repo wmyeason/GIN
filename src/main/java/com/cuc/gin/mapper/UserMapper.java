@@ -1,6 +1,6 @@
 package com.cuc.gin.mapper;
 
-import com.cuc.gin.model.UserEntity;
+import com.cuc.gin.entity.UserEntity;
 
 import java.util.List;
 

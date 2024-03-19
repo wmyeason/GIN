@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cuc.gin.mapper.UserMapper" >
-    <resultMap id="BaseResultMap" type="com.cuc.gin.model.UserEntity" >
+    <resultMap id="BaseResultMap" type="com.cuc.gin.entity.UserEntity" >
         <id column="id" property="id" jdbcType="BIGINT" />
         <result column="username" property="username" jdbcType="VARCHAR" />
         <result column="password" property="password" jdbcType="VARCHAR" />
@@ -45,7 +45,7 @@
         WHERE username = #{username}
     </select>
 
-    <insert id="add" parameterType="com.cuc.gin.model.UserEntity" useGeneratedKeys="true" keyProperty="id"  keyColumn="id">
+    <insert id="add" parameterType="com.cuc.gin.entity.UserEntity" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
        INSERT INTO
        		sys_user
        		(username, password,isConsultant)
@@ -53,7 +53,7 @@
        		(#{username}, #{password},#{isConsultant})
     </insert>
 
-    <update id="updateOne" parameterType="com.cuc.gin.model.UserEntity" >
+    <update id="updateOne" parameterType="com.cuc.gin.entity.UserEntity" >
         UPDATE sys_user
         SET username = #{username}, nickname = #{nickname}, age = #{age}, gender = #{gender}, password = #{password},contactInfo=#{contactInfo}
         WHERE id = #{id}

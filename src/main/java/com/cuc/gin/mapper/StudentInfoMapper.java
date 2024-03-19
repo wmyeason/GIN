@@ -1,7 +1,7 @@
 package com.cuc.gin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.cuc.gin.model.StudentInfoEntity;
+import com.cuc.gin.entity.StudentInfoEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

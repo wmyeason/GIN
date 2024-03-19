@@ -1,9 +1,9 @@
-package com.cuc.gin.web;
+package com.cuc.gin.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.cuc.gin.mapper.UserMapper;
-import com.cuc.gin.model.ReservationInfoEntity;
-import com.cuc.gin.model.UserEntity;
+import com.cuc.gin.entity.ReservationInfoEntity;
+import com.cuc.gin.entity.UserEntity;
 import com.cuc.gin.service.ReservationInfoService;
 import com.cuc.gin.util.HTTPMessage;
 import com.cuc.gin.util.HTTPMessageCode;

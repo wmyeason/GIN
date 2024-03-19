@@ -1,8 +1,8 @@
-package com.cuc.gin.web;
+package com.cuc.gin.controller;
 
 import com.cuc.gin.annotation.AdminRequired;
 import com.cuc.gin.mapper.PostMapper;
-import com.cuc.gin.model.PostEntity;
+import com.cuc.gin.entity.PostEntity;
 import com.cuc.gin.util.HTTPMessage;
 import com.cuc.gin.util.HTTPMessageCode;
 import com.cuc.gin.util.HTTPMessageText;

@@ -2,7 +2,7 @@ package com.cuc.gin.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.cuc.gin.model.ReservationInfoEntity;
+import com.cuc.gin.entity.ReservationInfoEntity;
 
 public interface ReservationInfoService extends IService<ReservationInfoEntity>{
     IPage<ReservationInfoEntity> getConsultReservationByDate(String startTime, String endTime, String consultId, String currentPage, String pageSize);

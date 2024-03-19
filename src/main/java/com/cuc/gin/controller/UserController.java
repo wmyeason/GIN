@@ -1,10 +1,10 @@
-package com.cuc.gin.web;
+package com.cuc.gin.controller;
 
 import com.cuc.gin.annotation.AdminRequired;
 import com.cuc.gin.mapper.UserMapper;
-import com.cuc.gin.model.ConsultInfoEntity;
-import com.cuc.gin.model.StudentInfoEntity;
-import com.cuc.gin.model.UserEntity;
+import com.cuc.gin.entity.ConsultInfoEntity;
+import com.cuc.gin.entity.StudentInfoEntity;
+import com.cuc.gin.entity.UserEntity;
 import com.cuc.gin.service.ConsultInfoService;
 import com.cuc.gin.service.StudentInfoService;
 import com.cuc.gin.util.*;

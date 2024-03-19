@@ -4,12 +4,13 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.cuc.gin.entity.ReservationInfoEntity;
 import com.cuc.gin.mapper.ReservationInfoMapper;
-import com.cuc.gin.model.ReservationInfoEntity;
 import com.cuc.gin.service.ReservationInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -41,18 +42,25 @@ public class ReservationInfoServiceImpl extends ServiceImpl<ReservationInfoMappe
     @Override
     public boolean checkReservationTimeRepeat(String startTime, String startHour, String endHour, String consultId) {
         QueryWrapper<ReservationInfoEntity> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("reservationDate",startTime);
+        queryWrapper.and(wrapper->wrapper.eq("reservationDate",startTime));
+        queryWrapper.and(wrapper->wrapper.eq("consultId",consultId));
+//        queryWrapper.and(wrapper -> wrapper
+//                        .le("startTime", endHour)
+//                        .ge("endTime", startHour))
+//                .or(wrapper -> wrapper
+//                        .ge("startTime", startHour)
+//                        .le("startTime", endHour))
+//                .or(wrapper -> wrapper
+//                        .ge("endTime", startHour)
+//                        .le("endTime", endHour));
+
+
+
         queryWrapper.and(wrapper -> wrapper
-                        .le("startTime", endHour)
-                        .ge("endTime", startHour))
-                .or(wrapper -> wrapper
-                        .ge("startTime", startHour)
-                        .le("startTime", endHour))
-                .or(wrapper -> wrapper
-                        .ge("endTime", startHour)
-                        .le("endTime", endHour));
-//        queryWrapper.lt("startTime",startHour).or().gt("endTime",endHour);
-//        queryWrapper.lt("startTime",startHour).or().gt("endTime",endHour);
+                        .lt("startTime", endHour)
+                        .gt("endTime", startHour)
+                        .or().gt("startTime", startHour).lt("startTime", endHour)
+                        .or().gt("endTime", startHour).lt("endTime", endHour));
 
 
         List<ReservationInfoEntity> reservationInfoEntities = reservationInfoMapper.selectList(queryWrapper);
@@ -82,8 +90,15 @@ public class ReservationInfoServiceImpl extends ServiceImpl<ReservationInfoMappe
     public IPage<ReservationInfoEntity> getConsultReservationInfo(String consultId, String currentPage, String pageSize) {
         Page<ReservationInfoEntity> page = new Page<>(Integer.parseInt(currentPage), Integer.parseInt(pageSize));
         QueryWrapper<ReservationInfoEntity> queryWrapper = new QueryWrapper<>();
-        queryWrapper.isNull("userId").or().eq("userId", "");
+
         queryWrapper.eq("consultId", consultId);
+        queryWrapper.and(wrapper -> wrapper.isNull("userId").or().eq("userId", ""));
+
+        Date currentDate = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
+        String formattedDate = sdf.format(currentDate);
+
+        queryWrapper.ge("reservationDate", formattedDate);
 
         return reservationInfoMapper.selectPage(page, queryWrapper);
     }

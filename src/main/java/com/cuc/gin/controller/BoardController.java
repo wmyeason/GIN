@@ -1,8 +1,8 @@
-package com.cuc.gin.web;
+package com.cuc.gin.controller;
 
 import com.cuc.gin.annotation.AdminRequired;
 import com.cuc.gin.mapper.BoardMapper;
-import com.cuc.gin.model.BoardEntity;
+import com.cuc.gin.entity.BoardEntity;
 import com.cuc.gin.util.HTTPMessage;
 import com.cuc.gin.util.HTTPMessageCode;
 import com.cuc.gin.util.HTTPMessageText;

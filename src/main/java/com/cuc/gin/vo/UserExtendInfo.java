@@ -1,8 +1,8 @@
 package com.cuc.gin.vo;
 
-import com.cuc.gin.model.ConsultInfoEntity;
-import com.cuc.gin.model.StudentInfoEntity;
-import com.cuc.gin.model.UserEntity;
+import com.cuc.gin.entity.ConsultInfoEntity;
+import com.cuc.gin.entity.StudentInfoEntity;
+import com.cuc.gin.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

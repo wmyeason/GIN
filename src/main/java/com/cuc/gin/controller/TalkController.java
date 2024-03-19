@@ -1,8 +1,8 @@
-package com.cuc.gin.web;
+package com.cuc.gin.controller;
 
 import com.cuc.gin.annotation.AdminRequired;
 import com.cuc.gin.mapper.TalkMapper;
-import com.cuc.gin.model.TalkEntity;
+import com.cuc.gin.entity.TalkEntity;
 import com.cuc.gin.util.HTTPMessage;
 import com.cuc.gin.util.HTTPMessageCode;
 import com.cuc.gin.util.HTTPMessageText;

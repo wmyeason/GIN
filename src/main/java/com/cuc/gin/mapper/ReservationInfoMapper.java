@@ -1,7 +1,7 @@
 package com.cuc.gin.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.cuc.gin.model.ReservationInfoEntity;
+import com.cuc.gin.entity.ReservationInfoEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

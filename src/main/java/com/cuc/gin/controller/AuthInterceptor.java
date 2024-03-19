@@ -1,4 +1,4 @@
-package com.cuc.gin.web;
+package com.cuc.gin.controller;
 
 import com.google.common.base.Strings;
 import io.jsonwebtoken.Claims;
