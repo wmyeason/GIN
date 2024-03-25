@@ -28,6 +28,8 @@ public class ReservationInfoServiceImpl extends ServiceImpl<ReservationInfoMappe
         queryWrapper.between("reservationDate", startTime,endTime);
         queryWrapper.eq("consultId", consultId);
 
+        queryWrapper.orderByAsc("reservationDate");
+
         return reservationInfoMapper.selectPage(page, queryWrapper);
     }
 
@@ -95,7 +97,7 @@ public class ReservationInfoServiceImpl extends ServiceImpl<ReservationInfoMappe
         queryWrapper.and(wrapper -> wrapper.isNull("userId").or().eq("userId", ""));
 
         Date currentDate = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-M-d");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = sdf.format(currentDate);
 
         queryWrapper.ge("reservationDate", formattedDate);
