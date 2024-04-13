@@ -43,6 +43,7 @@ public class ReservationInfoController {
             if(reservationInfo.getUserId()!=null && StringUtils.hasText(reservationInfo.getUserId())){
                 UserEntity one = userMapper.getOne(Long.valueOf(reservationInfo.getUserId()));
                 reservationInfo.setUserName(one.getUsername());
+                reservationInfo.setNickName(one.getNickname());
             }
         }
 

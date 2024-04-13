@@ -149,11 +149,13 @@ public class UserController {
             );
         }
         String newPassword = (String) map.get("password");
+        String nickName = (String) map.get("nickName");
         String passAble = (String) map.get("passAble");
         Integer age = (Integer) map.get("age");
         String sex = (String) map.get("sex");
         String contactInfo = (String) map.get("contactInfo");
         user.setContactInfo(contactInfo);
+        user.setNickname(nickName);
 
         if (passAble.equals("true") && Strings.isNullOrEmpty(newPassword)) {
             return new HTTPMessage<>(

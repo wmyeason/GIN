@@ -53,4 +53,7 @@ public class ReservationInfoEntity implements Serializable {
     @TableField(exist = false)
     private String userName;
 
+    @TableField(exist = false)
+    private String nickName;
+
 }
