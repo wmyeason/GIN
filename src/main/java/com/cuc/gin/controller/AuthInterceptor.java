@@ -28,7 +28,7 @@ public class AuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String uri = request.getRequestURI();
         // Accept if login or register request
-        if (uri.matches("/auth/[a-zA-Z]*")) {
+        if (uri.matches("/auth/[a-zA-Z]*")||uri.contains("druid")) {
             return true;
         }
         String compactJws = request.getHeader("Authorization");
