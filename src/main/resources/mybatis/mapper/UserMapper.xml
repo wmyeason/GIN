@@ -21,7 +21,7 @@
     <select id="getAll" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         SELECT
         <include refid="baseCols"/>
-        FROM sys_user where isConsultant = #{abc}
+        FROM sys_user where isConsultant = #{abc} and username != 'admin'
     </select>
 
     <select id="getOne" parameterType="java.lang.Long" resultMap="BaseResultMap" >
