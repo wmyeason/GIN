@@ -1,12 +1,14 @@
 package com.cuc.gin.controller;
 
 import com.cuc.gin.annotation.AdminRequired;
-import com.cuc.gin.mapper.ChatMsgMapper;
-import com.cuc.gin.mapper.TestEntryMapper;
-import com.cuc.gin.mapper.TestResultMapper;
 import com.cuc.gin.entity.ChatMsgEntity;
 import com.cuc.gin.entity.TestEntryEntity;
 import com.cuc.gin.entity.TestResultEntity;
+import com.cuc.gin.entity.UserEntity;
+import com.cuc.gin.mapper.ChatMsgMapper;
+import com.cuc.gin.mapper.TestEntryMapper;
+import com.cuc.gin.mapper.TestResultMapper;
+import com.cuc.gin.mapper.UserMapper;
 import com.cuc.gin.util.HTTPMessage;
 import com.cuc.gin.util.HTTPMessageCode;
 import com.cuc.gin.util.HTTPMessageText;
@@ -21,7 +23,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author : Wang SM.
@@ -38,6 +43,9 @@ public class TestController {
 
     @Autowired
     private ChatMsgMapper chatMsgMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     private static Map<String, Integer> scoreSheet = new HashMap<>();
     static {
@@ -128,10 +136,17 @@ public class TestController {
     @RequestMapping(value = "/test/result", method = RequestMethod.GET)
     @AdminRequired
     public HTTPMessage<List<TestResultEntity>> getAllResults(HttpServletRequest request, HttpServletResponse response) {
+        List<TestResultEntity> all = resultMapper.getAll();
+        if(!all.isEmpty()){
+            all.forEach(entity -> {
+                UserEntity one = userMapper.getOne(entity.getUserId());
+                entity.setUsername(one.getNickname());
+            });
+        }
         return new HTTPMessage<>(
                 HTTPMessageCode.Common.OK,
                 HTTPMessageText.Common.OK,
-                resultMapper.getAll()
+                all
         );
     }
 }

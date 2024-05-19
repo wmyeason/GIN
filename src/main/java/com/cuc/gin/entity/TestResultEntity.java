@@ -1,5 +1,7 @@
 package com.cuc.gin.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
 
 /**
@@ -13,6 +15,18 @@ public class TestResultEntity implements Serializable {
     private String result;
     private Integer value;
     private Long createTime;
+
+    @TableField(exist = false)
+    private String username;
+
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public TestResultEntity() {
     }
